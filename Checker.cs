@@ -8,25 +8,17 @@ namespace Booster
     {
 
         static Checker() { }
-
+        private static Dictionary<string, int> words = new Dictionary<string, int>();
+        private static Dictionary<char, int> chrasters = new Dictionary<char, int>();
         public static void Check(string iine) {
 
             ///Get text from stream
             ///
-            string text = Reader.Get();
+            string text = WordStream.Get();
 
             ///Check the text
             ///
             Console.WriteLine("Stream: " + text);
-
-
-        }
-
-        public static void NumberOfChars(string  line)
-        {
-            ///Get text from stream
-            ///
-            string text = Reader.Get();
 
             ///Get number of total chars in the text with backspaces.
             ///
@@ -35,14 +27,6 @@ namespace Booster
             ///Set exception for empty string or null
             ///
             if (text.Length == 0) throw new NullReferenceException("Something went wrong. Here is no charasters.");
-        }
-
-        public static void NumberOfWords(string line)
-        {
-
-            ///Get text from stream
-            ///
-            string text = Reader.Get();
 
 
             /// Set array of word splitters
@@ -60,22 +44,7 @@ namespace Booster
             ///Set exception for empty string or null
             ///
             if (words.Length == 0) throw new NullReferenceException("Something went wrong. Here is no words.");
-        }
 
-        public static void FiveLongestWords(string line) {
-
-
-            ///Get text from stream
-            ///
-            string text = Reader.Get();
-
-                ///Set array of word splitters
-                /// 
-                char[] separators = " \r\n,.()[]{}\"'&^$!/\\".ToArray();
-
-                /// Split the text with splitters
-                /// 
-                string[] LongWords = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
             ///Get 5 longest words
             ///
@@ -88,10 +57,13 @@ namespace Booster
                 ///
                 List<string> longWords = new List<string>();
 
+                /// Split the text with splitters
+                /// 
+                string[] LongWords = text.Split(separators, StringSplitOptions.RemoveEmptyEntries);
 
-                ///Start the algorithm of check the list and words' lenght
-                ///
-                foreach (string word in LongWords)
+            ///Start the algorithm of check the list and words' lenght
+            ///
+            foreach (string word in LongWords)
                 {
 
                 for (int t = 5; t > 0; t--)
@@ -118,7 +90,7 @@ namespace Booster
             ///Output results
             ///
             Console.WriteLine(string.Join(", ", longWords));
-            
         }
+
     }
 }

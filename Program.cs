@@ -11,10 +11,6 @@ namespace Booster
             ///Get results from the text's check
             ///
             Checker.Check(WordStream.Get());
-            Checker.NumberOfChars(WordStream.Get());
-            Checker.NumberOfWords(WordStream.Get());
-            Checker.FiveLongestWords(WordStream.Get());
-
         }
     }
 }
