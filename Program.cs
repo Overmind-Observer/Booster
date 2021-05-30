@@ -10,10 +10,10 @@ namespace Booster
         {
             ///Get results from the text's check
             ///
-            Checker.Check(Reader.Get());
-            Checker.NumberOfChars(Reader.Get());
-            Checker.NumberOfWords(Reader.Get());
-            Checker.FiveLongestWords(Reader.Get());
+            Checker.Check(WordStream.Get());
+            Checker.NumberOfChars(WordStream.Get());
+            Checker.NumberOfWords(WordStream.Get());
+            Checker.FiveLongestWords(WordStream.Get());
 
         }
     }

@@ -1,6 +1,8 @@
-﻿namespace Booster
+﻿using NLipsum.Core;
+
+namespace Booster
 {
-    class Reader
+    class WordStream 
     {
         public static string Get()
         {
@@ -11,6 +13,5 @@
             string text = stream.ToString();
             return text;
         }
-        
     }
 }
