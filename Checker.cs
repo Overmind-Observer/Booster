@@ -6,15 +6,35 @@ namespace Booster
 {
     class Checker
     {
+        static char[] separators = " \r\n,.()[]{}\"'&^$!/\\".ToArray();
 
         static Checker() { }
-        private static Dictionary<string, int> words = new Dictionary<string, int>();
-        private static Dictionary<char, int> chrasters = new Dictionary<char, int>();
-        public static void Check(string iine) {
+
+        public static void Check(char line) {
+
 
             ///Get text from stream
+            ///просто потому что я увидел в отладке что отображается неправильное значение.
             ///
-            string text = WordStream.Get();
+
+            var queue = new Queue<char>();
+
+                bool gettingNewWord;
+
+                do
+                {
+                    char c = WordStream.Get();
+
+                    gettingNewWord = c != ' ';
+                    if (c != ' ')
+                        queue.Enqueue(c);
+
+                } while (gettingNewWord);
+
+            string text = new(queue.ToArray());
+
+
+
 
             ///Check the text
             ///
@@ -31,7 +51,7 @@ namespace Booster
 
             /// Set array of word splitters
             /// 
-            char[] separators = " \r\n,.()[]{}\"'&^$!/\\".ToArray();
+            
 
             /// Split the text with splitters
             /// 
